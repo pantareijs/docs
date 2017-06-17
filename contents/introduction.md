@@ -54,10 +54,6 @@ Create new directives, or modify the existing ones, is straightforward.
 </script>
 ```
 
-```html
-<my-element id="element"></my-element>
-```
-
 ### Another example
 
 ```html
