@@ -13,26 +13,6 @@ it's perfectly capable of powering sophisticated Progressive Web Apps.
 Pantarei is based on WebComponents.  
 WebComponents allows you building new custom elements.  
 
-### Example
-
-```html
-<template-element id="my-element">
-  <template>
-    <div>Hello Pantarei!</div>
-  </template>
-</template-element>
-
-<script>
-  class MyElement extends pantarei.Element {
-    
-    static get is () { return 'my-element' } 
-    
-  }
-
-  customElements.define(MyElement.is, MyElement)
-</script>
-```
-
 ## Directives
 
 Pantarei reactive rendering is driven by directives.  
@@ -51,33 +31,56 @@ Create new directives, or modify the existing ones, is straightforward.
 ### Example
 
 ```html
-<template-element id="my-element">
+<template-element id="my-app">
   <template>
-    <template repeat="countdown" item="number">
-      <div text="number"></div>
-    </template>
-    <div>Welcome <span text="name">WebComponents</span>!</div>
+    <div text="message"></div>
   </template>
 </template-element>
 
 <script>
-  class MyElement extends pantarei.Element {
+  class MyApp extends pantarei.Element {
     
-    static get is () { return 'my-element' } 
+    static get is () { return 'my-app' } 
     
     static get props () {
       return {
-        name: { value: "Pantarei" },
-        countdown: { value: [3, 2, 1] }
+        message: { value: "Hello Pantarei!" }
       }
     }
     
   }
 
-  customElements.define(MyElement.is, MyElement)
+  customElements.define(MyApp.is, MyApp)
 </script>
 ```
 
 ```html
 <my-element id="element"></my-element>
+```
+
+### Another example
+
+```html
+<div id="my-app-2">
+  <span attr-title="message">
+    Hover your mouse over me for a few seconds
+    to see my dynamically bound title!
+  </span>
+</div>
+
+<script>
+  class MyApp2 extends pantarei.Element {
+    
+    static get is () { return 'my-app-2'}
+    
+    static get props () {
+      return {
+        message: { value: `You loaded this page on ${new Date()}` }
+      }
+    }
+    
+  }
+  
+  customElements.define(MyApp2.is, MyApp2)
+</script>
 ```
