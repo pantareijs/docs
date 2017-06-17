@@ -11,8 +11,7 @@ it's perfectly capable of powering sophisticated Progressive Web Apps.
 ## WebComponents
 
 Pantarei is based on WebComponents.  
-It's a thin layer built on top of WebComponents.  
-It allows you building new reactive custom elements, extending the HTML.
+WebComponents allows you building new custom elements.  
 
 ### Example
 
@@ -34,10 +33,7 @@ It allows you building new reactive custom elements, extending the HTML.
 </script>
 ```
 
-### Reactive real DOM templates
-
-Pantarei allows you building client-side reactive templates.  
-Templates are real DOM elements, no strings.
+## Directives
 
 Pantarei reactive rendering is driven by directives.  
 Directives are special attributes that tells the DOM what to do.  
