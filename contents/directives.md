@@ -21,7 +21,7 @@ Create new directives, or modify the existing ones, is straightforward.
 ## Attribute
 
 The attribute directive allows you to bind an element's attribute with a data property.  
-Attribute directives have the `attr.` prefix.  
+An attribute directive attribute starts with the `attr.` prefix.  
 
 ### Example
 
@@ -45,7 +45,7 @@ var app = new Pantarei({
 ## Property
 
 The property directive allows you to bind an element's property with a data property.  
-Attribute directives have the `prop.` prefix.  
+A property directive attribute starts with the `prop.` prefix.  
 
 ### Example
 
@@ -65,8 +65,8 @@ var app = new Pantarei({
 
 ## Text
 
-The property directive allows you to bind an element's property with a data property.  
-Attribute directives have the `text` prefix.  
+The text directive allows you to bind an element's property with a data property.  
+A text directive attribute has the `text` name.  
 
 ### Example
 
@@ -85,4 +85,61 @@ var app = new Pantarei({
 
 ```html
 Hello Web!
+```
+
+## Repeat
+
+The repeat directive allows you to repeat the content of an element.  
+A repeat directive attribute has the `repeat` name.
+
+```html
+<ul id="list">
+  <template repeat="items">
+    <li>{{ item.message }}</li>
+  </template>
+</ul>
+```
+
+```js
+var app = new Pantarei({
+  el: list,
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+```
+
+## Event
+
+The event directive allows you to delegate events.  
+An event directive attribute starts with the prefix 'ev.'
+
+
+```html
+<ul id="list">
+  <template repeat="items">
+    <li ev.click="on_click">{{ item.message }}</li>
+  </template>
+</ul>
+```
+
+```js
+var app = new Pantarei({
+  el: list,
+
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  },
+
+  on_click (event) {
+    console.log(`Touchè my ${event.target}`)
+  }
+
+})
 ```
