@@ -83,6 +83,12 @@ that allow you to run user code in response to certain lifecycle changes.
 When the element is "upgraded", that is, when it's created or when a previously-created element becomes defined,  
 the `constructor` is called.
 
+The element constructor has a few special limitations:
+
+- The first statement in the constructor body must be a parameter-less call to the `super` method.
+- The constructor can't include a return statement, unless it is a simple early return (return or return this).
+- The constructor can't examine the element's attributes or children, and the constructor can't add attributes or children.
+
 ### Connect
 When the element is added to a document  
 the `connectedCallback` is called.
@@ -121,12 +127,36 @@ window.customElements.define(MyComponent.is, MyComponent)
 
 ### Ready 
 
-Pantarei add a further reaction to the ones predefined by the custom element spec.
-When the component is ready, that is, when its content is set and reactive,  
-the `ready` callback is called.
+The custom elements specification doesn't provide a one-time initialization callback.  
+Pantarei provides a `ready` callback, invoked the first time the element is added to the DOM,  
+and so it's ready to be uses.
+
+The `Pantarei.Element` class initializes your element's template and data system during the ready callback,  
+so if you override ready, you must call `super.ready()` at some point.
+
+When the superclass `ready` method returns, the element's template has been instantiated  
+and initial property values have been set. 
 
 
-## Element upgrades
+```js
+class MyComponent extends Pantarei.Element { 
+
+  static get is () { return 'my-component' }
+
+  //...
+  
+  ready () {
+    super.ready()
+    console.log(`${this.constructor.is} is ready!`)
+  }
+  
+}
+
+window.customElements.define(MyComponent.is, MyComponent)
+```
+
+
+### Element upgrades
 
 We've already learned that custom elements are defined by calling `customElements.define()`.  
 But this doesn't mean you have to define and register a custom element all in one go.  
@@ -142,9 +172,53 @@ The process of defining a new custom element, calling `customElements.define`,
 and endowing an existing element with a class definition, is called "element upgrades".
 
 
-## Attributes
+## Templates
+
+For those unfamiliar, the `<template>` element allows you to declare fragments of DOM  
+which are parsed, inert at page load, and can be activated later at runtime.  
+It's another API primitive in the WebComponents family.  
+Templates are an ideal placeholder for declaring the structure of a component.
+
+```
+<template id="my-template">
+  <style>
+    p { color: coral; }
+  </style>
+
+  <p>I'm in Shadow DOM. My markup was stamped from a template</p>
+</template>
+```
+
+```js
+class MyComponent extends Pantarei.Element { 
+
+  static get is () { return 'my-component' }
+
+  static get template () { return document.getElementById('my-template') }
+  
+  ready () {
+    super.ready()
+    console.log(`${this.constructor.is} is ready!`)
+  }
+  
+}
+
+window.customElements.define(MyComponent.is, MyComponent)
+```
+
+## Custom attributes
 
 TODO
 
-## Properties
 
+## Custom properties
+
+Every component instance has its own isolated scope.  
+This means you cannot (and should not) directly reference parent data in a child component's template.  
+Data can be passed down to child components using props.  
+A prop is a custom property for passing information from parent components.
+
+
+## Component composition
+
+As indicated by their name, components are expected to be composed.
