@@ -15,7 +15,9 @@ Pantarei Components are based on the HTML5 WebComponents standards:
 To define a component, you create an ES6 class and associate it with the component name.
 
 ```js
-class MyComponent extends HTMLElement { }
+class MyComponent extends HTMLElement { 
+  // ...
+}
 
 window.customElements.define('my-component', MyComponent)
 ```
@@ -43,12 +45,10 @@ your component class must extend the `Panterei.Element` class.
 
 ```js
 class MyComponent extends Pantarei.Element { 
-
-  static get is () { return 'my-component' }
-
+  // ...
 }
 
-window.customElements.define(MyComponent.is, MyComponent)
+window.customElements.define('my-component', MyComponent)
 ```
 
 ### Components name
@@ -57,5 +57,55 @@ By specification, the custom element's name must start with a lower-case ASCII l
 There's also a short list of prohibited element names that match existing names.  
 For details, see the [Custom elements core concepts](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-core-concepts) section in the HTML specification.
 
-It's convenient for the component class to have a static getter `is` to get the name of the component.
+It's convenient for the component class to have a static getter `is` to specify the name of the component.
 
+```js
+class MyComponent extends Pantarei.Element { 
+
+  static get is () { return 'my-component' }
+
+}
+
+window.customElements.define(MyComponent.is, MyComponent)
+```
+
+## Component lifecycle
+
+The custom element spec provides a set of callbacks called "custom element reactions"  
+that allow you to run user code in response to certain lifecycle changes.
+
+- `constructor`  
+    Called when the element is upgraded, that is, when an element is created, 
+    or when a previously-created element becomes defined.
+- `connectedCallback`  
+    Called when the element is added to a document.
+- `disconnectedCallback`   
+    Called when the element is removed from a document.
+    
+For each reaction, the first line of your implementation must be a call to the superclass constructor or reaction.  
+For the constructor, this is simply the `super()` call.
+
+```js
+class MyComponent extends Pantarei.Element { 
+
+  static get is () { return 'my-component' }
+
+  constructor () {
+    super()
+    console.log(`${this.constructor.is} created!`)
+  }
+  
+  connectedCallback () {
+    super.connectedCallback()
+    console.log(`${this.constructor.is} added to ${this.parentNode}!`)    
+  }
+
+  disconnectedCallback () {
+    super.disconnectedCallback()
+    console.log(`${this.constructor.is} removed from ${this.parentNode}!`)    
+  }
+
+}
+
+window.customElements.define(MyComponent.is, MyComponent)
+```
