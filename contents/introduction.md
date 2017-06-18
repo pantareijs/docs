@@ -40,6 +40,7 @@ Directives are special attributes that tells the DOM what to do.
 Pantarei allows you to build reactive custom elements as well.  
 The custom elements creation is based on the HTML5 WebComponents starndard.  
 Pantarei adds a thin layer over WebComponents to enable reactivity.  
+[Read more](/custom-elements.md)
 
 
 ## Show me the code!
