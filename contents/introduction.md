@@ -33,14 +33,14 @@ Hello Web!
 Pantarei makes the existing (real!) DOM of your app reactive.  
 The reactive rendering is driven by directives.  
 Directives are special attributes that tells the DOM what to do.  
-[Read more](/directives.md)
+[Read more](directives.md)
 
 ### Custom Elements
 
 Pantarei allows you to build reactive custom elements as well.  
-The custom elements creation is based on the HTML5 WebComponents starndard.  
+The custom elements creation is based on the HTML5 WebComponents standard.  
 Pantarei adds a thin layer over WebComponents to enable reactivity.  
-[Read more](/custom-elements.md)
+[Read more](custom-elements.md)
 
 
 ## Show me the code!
