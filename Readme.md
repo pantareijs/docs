@@ -2,5 +2,6 @@
 
 ## Contents
 
-1. [Introduction](contents/introduction.md)
-2. [Directives](contents/directives.md)
+1. [Installation](contents/installation.md)
+2. [Introduction](contents/introduction.md)
+3. [Directives](contents/directives.md)
