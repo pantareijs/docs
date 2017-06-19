@@ -2,7 +2,8 @@
 
 ## Contents
 
-1. [Installation](contents/installation.md)
-2. [Introduction](contents/introduction.md)
-3. [Directives](contents/directives.md)
-4. [Components](contents/components.md)
+1. [Motivation](contents/motivation.md)
+2. [Installation](contents/installation.md)
+3. [Introduction](contents/introduction.md)
+4. [Directives](contents/directives.md)
+5. [Components](contents/components.md)
