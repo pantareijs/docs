@@ -12,7 +12,7 @@ There is no task in software engineering today quite as herculean as web develop
 To tackle the problem of building attractive, interactive user interfaces for the Web,  
 the web development community has evolved a vast ecosystem of web frameworks.
 
-In system design, a frameworks is a fundamental structure for supporting or enclosing something else.
+In system design, a frameworks is a fundamental structure for supporting or enclosing something else.  
 Web frameworks provide a standard way to build complex web applications, as well as simple static websites.  
 Web frameworks aim to automate the overhead associated with common activities performed in web development.  
 
