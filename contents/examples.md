@@ -1,3 +1,3 @@
 # Examples
 
-- [TodoMVC](https://github.com/pantarei/pantarei-todos)
+- [TodoMVC](https://github.com/pantareijs/pantarei-todos)
