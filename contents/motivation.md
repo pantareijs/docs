@@ -1,5 +1,13 @@
 # Motivation
 
+## TL;DR
+
+Existing frameworks tend to be overarching and to lead to lock-in from day one.  
+A light, customizable, modular, extensible, Web Framework is required.
+A resilient, close to the platform Web Framework is needed. Enter Pantarei.
+
+## Web Frameworks
+
 There is no task in software engineering today quite as herculean as web development.  
 To tackle the problem of building attractive, interactive user interfaces for the Web,  
 the web development community has evolved a vast ecosystem of web frameworks.
@@ -23,6 +31,10 @@ that usually choosing to switch to another framework means to start from scratch
 However, thinking of not changing, or even not upgrading, wouldn’t simply reflect the reality.  
 Web application requirements and device and browser capabilities are constantly evolving,  
 and the web development community is constantly craving the next new thing.
+
+TODO
+
+## Introducing Pantarei
 
 Pantarei is designed to be flexible, lightweight, and close to the web platform.  
 The library doesn't invent complex new abstractions and magic,  

@@ -9,6 +9,7 @@ usually when the data associated with the element change.
 
 Pantarei comes with a minimal set of built-in directives:
 - attribute
+- class
 - property
 - text
 - repeat
@@ -40,6 +41,10 @@ var app = new Pantarei({
   }
 })
 ```
+
+## Class
+
+TODO
 
 
 ## Property

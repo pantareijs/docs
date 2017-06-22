@@ -7,3 +7,4 @@
 3. [Introduction](contents/introduction.md)
 4. [Directives](contents/directives.md)
 5. [Components](contents/components.md)
+6. [Examples](contents/examples.md)

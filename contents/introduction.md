@@ -2,7 +2,7 @@
 
 ## What is Pantarei?
 
-Pantarei is a tiny foundation for building user interfaces for the Web.  
+Pantarei is a tiny foundation for building interactive user interfaces for the Web.  
 Unlike other opinionated frameworks, Pantarei is designed to be resilient.
 
 ## Hello Web!
